@@ -1,0 +1,82 @@
+### SIGN UP
+POST http://127.0.0.1:8000/api/signup/
+Content-Type: application/json
+
+{
+  "username":"admin",
+  "password":"12345678aA",
+  "password2":"12345678aA",
+  "first_name":"admin",
+  "last_name":"admin",
+  "email":"admin4@test.com"
+}
+
+
+
+### SIGN IN
+POST http://127.0.0.1:8000/api/login/
+Content-Type: application/json
+
+{
+  "username":"admin3",
+  "password":"12345678aA"
+
+}
+### Var
+@access = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyNzkwNTk2LCJpYXQiOjE3ODI3NjA1OTYsImp0aSI6IjRhZDRmMDQzMmQ4MTQ1NTY4NmE4YzY2OTA3YjdjMzBjIiwidXNlcl9pZCI6IjQifQ.Nuev1KiVBXkHJz4hz4HGg0p29f1sThVVfpeC7lgQSt4
+
+### REFRESH
+POST http://127.0.0.1:8000/api/refresh/
+Content-Type: application/json
+
+
+### logout
+POST http://127.0.0.1:8000/api/logout/
+Content-Type: application/json
+Authorization: Bearer {{access}}
+
+
+### Me
+GET http://127.0.0.1:8000/api/me/
+Content-Type: application/json
+Authorization: Bearer {{access}}
+
+
+
+### list_tasks
+GET http://127.0.0.1:8000/api/tasks/?priority=1&is_complete=false&search=
+Authorization: Bearer {{access}}
+
+
+### get_task
+GET http://127.0.0.1:8000/api/tasks/ec482b5d-bf23-41c8-a419-c640d3d4a8c9/
+Authorization: Bearer {{access}}
+
+
+### update_task (PUT)
+PUT http://127.0.0.1:8000/api/tasks/ec482b5d-bf23-41c8-a419-c640d3d4a8c9/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzgyNTcwMzU4LCJpYXQiOjE3ODI1Njg1NTgsImp0aSI6IjQ3YzNmNjlmMWJiNjRhMzBhNTkwMTBhYjA3OWU1MDNhIiwidXNlcl9pZCI6IjQifQ.V5AxWacJj5W-uOTaQOrHwGROqZucyzQ4WiJ_wLjDIjU
+
+{
+  "title": "Learn Django",
+  "description": "Update task using PUT",
+  "due": "2026-07-02T09:00:00Z",
+  "priority": 2,
+  "is_complete": false
+}
+
+
+### partial_update_task (PATCH)
+PATCH http://127.0.0.1:8000/api/tasks/ec482b5d-bf23-41c8-a419-c640d3d4a8c9/
+Content-Type: application/json
+Authorization: Bearer {{access}}
+
+{
+  "is_complete": true
+}
+
+
+### delete_task
+DELETE http://127.0.0.1:8000/api/tasks/ec482b5d-bf23-41c8-a419-c640d3d4a8c9/
+Authorization: Bearer {{access}}
