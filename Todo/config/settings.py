@@ -66,7 +66,6 @@ INSTALLED_APPS = [
     # local apps
     "apps.accounts.apps.AccountsConfig",
     "apps.tasks.apps.TasksConfig",
-    "apps.notifications.apps.NotificationsConfig",
 ]
 ASGI_APPLICATION = "config.asgi.application"
 
